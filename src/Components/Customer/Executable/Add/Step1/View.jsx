@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodeBranch, faFilterCircleXmark,faArrowLeft, faRobot, faTachometer, faEye, faPencil, faTrashCan, faPlus, faGauge, faArrowRight, faTable, faArrowUpRightFromSquare, faRefresh, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useRecoilState } from 'recoil';
 
-import { getExecutableListAPI } from "../../../../../API/Executable";
+import { getProgramListAPI } from "../../../../../API/Program";
 import {
     topAlertMessageState,
     topAlertStatusState,
@@ -70,8 +70,8 @@ function CustomerExecutableAddStep1() {
 
     // --- List --- //
 
-    function onExecutableListSuccess(response){
-        console.log("onExecutableListSuccess: Starting...");
+    function onProgramListSuccess(response){
+        console.log("onProgramListSuccess: Starting...");
         if (response.results !== null) {
             setListData(response);
             if (response.hasNextPage) {
@@ -80,8 +80,8 @@ function CustomerExecutableAddStep1() {
         }
     }
 
-    function onExecutableListError(apiErr) {
-        console.log("onExecutableListError: Starting...");
+    function onProgramListError(apiErr) {
+        console.log("onProgramListError: Starting...");
         setErrors(apiErr);
 
         // The following code will cause the screen to scroll to the top of
@@ -91,21 +91,21 @@ function CustomerExecutableAddStep1() {
         scroll.scrollToTop();
     }
 
-    function onExecutableListDone() {
-        console.log("onExecutableListDone: Starting...");
+    function onProgramListDone() {
+        console.log("onProgramListDone: Starting...");
         setFetching(false);
     }
 
     // --- Count --- //
 
-    function onExecutableCountSuccess(response) {
-        console.log("onExecutableCountSuccess: Starting...");
-        console.log("onExecutableCountSuccess: response:", response);
+    function onProgramCountSuccess(response) {
+        console.log("onProgramCountSuccess: Starting...");
+        console.log("onProgramCountSuccess: response:", response);
         setListCount(response.count);
     }
 
-    function onExecutableCountError(apiErr) {
-        console.log("onExecutableCountError: Starting...");
+    function onProgramCountError(apiErr) {
+        console.log("onProgramCountError: Starting...");
         setErrors(apiErr);
 
         // The following code will cause the screen to scroll to the top of
@@ -115,49 +115,8 @@ function CustomerExecutableAddStep1() {
         scroll.scrollToTop();
     }
 
-    function onExecutableCountDone() {
-        console.log("onExecutableCountDone: Starting...");
-        setFetching(false);
-    }
-
-    // --- Delete --- //
-
-    function onExecutableDeleteSuccess(response){
-        console.log("onExecutableDeleteSuccess: Starting..."); // For debugging purposes only.
-
-        // Update notification.
-        setTopAlertStatus("success");
-        setTopAlertMessage("Executable deleted");
-        setTimeout(() => {
-            console.log("onDeleteConfirmButtonClick: topAlertMessage, topAlertStatus:", topAlertMessage, topAlertStatus);
-            setTopAlertMessage("");
-        }, 2000);
-
-        // Fetch again an updated list.
-        fetchList(currentCursor, pageSize, "", sortByValue, status, type);
-    }
-
-    function onExecutableDeleteError(apiErr) {
-        console.log("onExecutableDeleteError: Starting..."); // For debugging purposes only.
-        setErrors(apiErr);
-
-        // Update notification.
-        setTopAlertStatus("danger");
-        setTopAlertMessage("Failed deleting");
-        setTimeout(() => {
-            console.log("onExecutableDeleteError: topAlertMessage, topAlertStatus:", topAlertMessage, topAlertStatus);
-            setTopAlertMessage("");
-        }, 2000);
-
-        // The following code will cause the screen to scroll to the top of
-        // the page. Please see ``react-scroll`` for more information:
-        // https://github.com/fisshy/react-scroll
-        var scroll = Scroll.animateScroll;
-        scroll.scrollToTop();
-    }
-
-    function onExecutableDeleteDone() {
-        console.log("onExecutableDeleteDone: Starting...");
+    function onProgramCountDone() {
+        console.log("onProgramCountDone: Starting...");
         setFetching(false);
     }
 
@@ -171,18 +130,18 @@ function CustomerExecutableAddStep1() {
     //// Event handling.
     ////
 
-    const onPick = (assistantID) => {
+    const onPick = (programID) => {
         // Let's create a clone of our object.
         let modifiedAddExecutable = { ...addExecutable };
 
         // Set the type.
-        modifiedAddExecutable.assistantID = assistantID;
+        modifiedAddExecutable.programID = programID;
 
         // Save to persistent storage our new assistant.
         setAddExecutable(modifiedAddExecutable);
 
         // Redirect to the next page.
-        setForceURL("/assistant-threads/add/step-3-discussion");
+        setForceURL("/executables/add/step-2");
     }
 
     // Function resets the filter state to its default state.
@@ -222,11 +181,11 @@ function CustomerExecutableAddStep1() {
             params.set("type", t);
         }
 
-        getExecutableListAPI(
+        getProgramListAPI(
             params,
-            onExecutableListSuccess,
-            onExecutableListError,
-            onExecutableListDone,
+            onProgramListSuccess,
+            onProgramListError,
+            onProgramListDone,
             onUnauthorized
         );
     }
@@ -458,10 +417,10 @@ function CustomerExecutableAddStep1() {
                                     <section className="hero is-medium has-background-white-ter">
                                         <div className="hero-body">
                                             <p className="title">
-                                                <FontAwesomeIcon className="fas" icon={faTable} />&nbsp;No Executables
+                                                <FontAwesomeIcon className="fas" icon={faTable} />&nbsp;No Programs
                                             </p>
                                             <p className="subtitle">
-                                                No assistant. <b><Link to="/admin/assistants/add">Click here&nbsp;<FontAwesomeIcon className="mdi" icon={faArrowRight} /></Link></b> to get started creating your first assistant.
+                                                No programs. Please check back another time.
                                             </p>
                                         </div>
                                     </section>
@@ -470,7 +429,7 @@ function CustomerExecutableAddStep1() {
                         }
                         <div className="columns pt-5">
                             <div className="column is-half">
-                                <Link className="button is-fullwidth-mobile" to={`/assistant-threads/add/step-1`}><FontAwesomeIcon className="fas" icon={faArrowLeft} />&nbsp;Back to Step 1</Link>
+                                <Link className="button is-fullwidth-mobile" to={`/executables`}><FontAwesomeIcon className="fas" icon={faArrowLeft} />&nbsp;Back to Executables</Link>
                             </div>
                             <div className="column is-half has-text-right">
 

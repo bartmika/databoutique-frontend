@@ -5,14 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRobot, faCloudUpload, faMessage, faHome, faBuildingUser, faHomeUser, faUserGear, faArrowCircleRight, faArrowLeft, faSearch, faTasks, faTachometer, faPlus, faTimesCircle, faCheckCircle, faCodeBranch, faGauge, faPencil, faUsers, faIdCard, faAddressBook, faContactCard, faChartPie, faBuilding, faClose } from '@fortawesome/free-solid-svg-icons'
 import { useRecoilState } from 'recoil';
 
-import { getExecutableDetailAPI } from "../../../../../API/Executable";
-import { postExecutableThreadCreateAPI } from "../../../../../API/ExecutableThread";
+import { getProgramDetailAPI } from "../../../../../API/Program";
+import { postExecutableCreateAPI } from "../../../../../API/Executable";
 import DataDisplayRowText from "../../../../Reusable/DataDisplayRowText";
 import FormTextareaField from "../../../../Reusable/FormTextareaField";
 import FormErrorBox from "../../../../Reusable/FormErrorBox";
 import { RESIDENTIAL_ASSOCIATE_TYPE_OF_ID, COMMERCIAL_ASSOCIATE_TYPE_OF_ID  } from "../../../../../Constants/App";
 import {
-    addExecutableThreadState,
+    addExecutableState,
     ADD_ASSISTANT_THREAD_STATE_DEFAULT,
     currentUserState,
     topAlertMessageState,
@@ -21,12 +21,12 @@ import {
 import PageLoadingContent from "../../../../Reusable/PageLoadingContent";
 
 
-function CustomerExecutableThreadAddStep3Discussion() {
+function CustomerExecutableAddStep2() {
     ////
     //// Global state.
     ////
 
-    const [addExecutableThread, setAddExecutableThread] = useRecoilState(addExecutableThreadState);
+    const [addExecutable, setAddExecutable] = useRecoilState(addExecutableState);
     const [topAlertMessage, setTopAlertMessage] = useRecoilState(topAlertMessageState);
     const [topAlertStatus, setTopAlertStatus] = useRecoilState(topAlertStatusState);
     const [currentUser] = useRecoilState(currentUserState);
@@ -38,7 +38,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
     const [errors, setErrors] = useState({});
     const [forceURL, setForceURL] = useState("");
     const [isFetching, setFetching] = useState(false);
-    const [assistant, setExecutable] = useState({});
+    const [program, setProgram] = useState({});
     const [message, setMessage] = useState("");
 
     ////
@@ -46,19 +46,19 @@ function CustomerExecutableThreadAddStep3Discussion() {
     ////
 
     const onSubmitClick = (to) => {
-        // Let's create a clone of our assistantThread.
-        let modifiedAddExecutableThread = { ...addExecutableThread };
+        // Let's create a clone of our object.
+        let modifiedAddExecutable = { ...addExecutable };
 
         console.log("onSubmitClick: Starting...")
         setFetching(true);
         setErrors({});
 
         const decamelizedData = {
-            assistant_id: assistant.id,
+            program_id: program.id,
             user_id: currentUser.id,
             message: message,
         };
-        postExecutableThreadCreateAPI(
+        postExecutableCreateAPI(
             decamelizedData,
             onAddSuccess,
             onAddError,
@@ -89,7 +89,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
         }, 2000);
 
         // Redirect the user to the user attachments page.
-        setForceURL("/assistant-thread/"+response.id);
+        setForceURL("/program-thread/"+response.id);
     }
 
     function onAddError(apiErr) {
@@ -121,7 +121,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
 
     function onSuccess(response){
         console.log("onSuccess: Starting...");
-        setExecutable(response);
+        setProgram(response);
     }
 
     function onError(apiErr) {
@@ -158,8 +158,8 @@ function CustomerExecutableThreadAddStep3Discussion() {
             window.scrollTo(0, 0);  // Start the page at the top of the page.
 
             setFetching(true);
-            getExecutableDetailAPI(
-                addExecutableThread.assistantID,
+            getProgramDetailAPI(
+                addExecutable.programID,
                 onSuccess,
                 onError,
                 onDone,
@@ -168,7 +168,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
         }
 
         return () => { mounted = false; }
-    }, [addExecutableThread]);
+    }, [addExecutable]);
     ////
     //// Component rendering.
     ////
@@ -186,7 +186,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
                     <nav className="breadcrumb has-background-light p-4 is-hidden-touch" aria-label="breadcrumbs">
                         <ul>
                             <li className=""><Link to="/dashboard" aria-current="page"><FontAwesomeIcon className="fas" icon={faGauge} />&nbsp;Dashboard</Link></li>
-                            <li className=""><Link to="/assistant-threads" aria-current="page"><FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Executable Threads</Link></li>
+                            <li className=""><Link to="/executables" aria-current="page"><FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Executables</Link></li>
                             <li className="is-active"><Link aria-current="page"><FontAwesomeIcon className="fas" icon={faPlus} />&nbsp;New</Link></li>
                         </ul>
                     </nav>
@@ -195,25 +195,25 @@ function CustomerExecutableThreadAddStep3Discussion() {
                     <nav className="breadcrumb has-background-light p-4 is-hidden-desktop" aria-label="breadcrumbs">
                         <ul>
                             <li className="">
-                                <Link to="/assistant-threads" aria-current="page"><FontAwesomeIcon className="fas" icon={faArrowLeft} />&nbsp;Back to Executable Threads</Link>
+                                <Link to="/executables" aria-current="page"><FontAwesomeIcon className="fas" icon={faArrowLeft} />&nbsp;Back to Executables</Link>
                             </li>
                         </ul>
                     </nav>
 
                     {/* Page Title */}
-                    <h1 className="title is-2"><FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Executable Threads</h1>
-                    <h4 className="subtitle is-4"><FontAwesomeIcon className="fas" icon={faPlus} />&nbsp;New Executable Thread</h4>
+                    <h1 className="title is-2"><FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Executables</h1>
+                    <h4 className="subtitle is-4"><FontAwesomeIcon className="fas" icon={faPlus} />&nbsp;New Executable</h4>
                     <hr />
 
                     {/* Progress Wizard */}
                     <nav className="box has-background-success-light" >
-                        <p className="subtitle is-5">Step 3 of 3</p>
+                        <p className="subtitle is-5">Step 2 of 2</p>
                         <progress class="progress is-success" value="100" max="100">100%</progress>
                     </nav>
 
                     {/* Page */}
                     <nav className="box">
-                        <p className="title is-4"><FontAwesomeIcon className="fas" icon={faUserGear} />&nbsp;Executable Thread</p>
+                        <p className="title is-4"><FontAwesomeIcon className="fas" icon={faUserGear} />&nbsp;Executable</p>
                         <>
                             <FormErrorBox errors={errors} />
                             <div className="container">
@@ -222,18 +222,18 @@ function CustomerExecutableThreadAddStep3Discussion() {
                                     <PageLoadingContent displayMessage={"Submitting..."} />
                                     :
                                     <>
-                                        {assistant && <>
+                                        {program && <>
 
                                             <p className="pb-4 has-text-grey">To begin please fill out the following message to submit into the system:</p>
 
                                                 <DataDisplayRowText
-                                                    label="Name"
-                                                    value={assistant.name}
+                                                    label="Program Name"
+                                                    value={program.name}
                                                 />
 
                                                 <DataDisplayRowText
-                                                    label="Description"
-                                                    value={assistant.description}
+                                                    label="Program Description"
+                                                    value={program.description}
                                                 />
 
                                                 <FormTextareaField
@@ -242,7 +242,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
                                                     placeholder="Text input"
                                                     value={message}
                                                     errorText={errors && errors.message}
-                                                    helpText="Type your first question to the assistant here."
+                                                    helpText="Type your first question to the program here."
                                                     onChange={(e)=>setMessage(e.target.value)}
                                                     isRequired={true}
                                                     maxWidth="280px"
@@ -255,7 +255,7 @@ function CustomerExecutableThreadAddStep3Discussion() {
 
                                 <div className="columns pt-5">
                                     <div className="column is-half">
-                                        <Link className="button is-fullwidth-mobile" to={`/assistant-threads/add/step-2-discussion`}><FontAwesomeIcon className="fas" icon={faArrowLeft} />&nbsp;Back to Step 2</Link>
+                                        <Link className="button is-fullwidth-mobile" to={`/executables/add/step-1`}><FontAwesomeIcon className="fas" icon={faArrowLeft} />&nbsp;Back to Step 1</Link>
                                     </div>
                                     <div className="column is-half has-text-right">
                                         <button className="button is-medium is-success is-fullwidth-mobile" onClick={onSubmitClick}><FontAwesomeIcon className="fas" icon={faCheckCircle} />&nbsp;Submit</button>
@@ -271,4 +271,4 @@ function CustomerExecutableThreadAddStep3Discussion() {
     );
 }
 
-export default CustomerExecutableThreadAddStep3Discussion;
+export default CustomerExecutableAddStep2;
