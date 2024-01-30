@@ -934,13 +934,13 @@ export const registerJobSeekerState = atom({
 
 // NEW //
 
-export const ADD_ASSISTANT_THREAD_STATE_DEFAULT = {
+export const ADD_EXECUTABLE_STATE_DEFAULT = {
     assistantType: 0,
     assistantID: ""
 };
 
-export const addAssistantThreadState = atom({
-  key: 'addAssistantThread',
-  default: ADD_ASSISTANT_THREAD_STATE_DEFAULT,
+export const addExecutableState = atom({
+  key: 'addExecutable',
+  default: ADD_EXECUTABLE_STATE_DEFAULT,
   effects_UNSTABLE: [persistAtom],
 });

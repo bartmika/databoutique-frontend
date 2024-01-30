@@ -33,61 +33,7 @@ import AdminDashboard from "./Components/Admin/Dashboard/View";
 import AdminDashboardCommentList from "./Components/Admin/Dashboard/Comments/List";
 import AdminHelp from "./Components/Admin/Help";
 
-import AdminAssistantFileList from "./Components/Admin/AssistantFile/List/View";
-import AdminAssistantFileAdd from "./Components/Admin/AssistantFile/Add/View";
-import AdminAssistantFileDetail from "./Components/Admin/AssistantFile/Detail/View";
-import AdminAssistantFileUpdate from "./Components/Admin/AssistantFile/Update/View";
-import AdminAssistantFileSearch from "./Components/Admin/AssistantFile/Search/Search";
-import AdminAssistantFileSearchResult from "./Components/Admin/AssistantFile/Search/Result";
-
-import AdminAssistantList from "./Components/Admin/Assistant/List/View";
-import AdminAssistantAdd from "./Components/Admin/Assistant/Add/View";
-import AdminAssistantDetail from "./Components/Admin/Assistant/Detail/View";
-import AdminAssistantUpdate from "./Components/Admin/Assistant/Update/View";
-import AdminAssistantSearch from "./Components/Admin/Assistant/Search/Search";
-import AdminAssistantSearchResult from "./Components/Admin/Assistant/Search/Result";
-import AdminAssistantThreadList from "./Components/Admin/Assistant/Thread/List";
-import AdminAssistantThreadDetail from "./Components/Admin/Assistant/Thread/Detail";
-
-// Program
-import AdminProgramList from "./Components/Admin/Program/List/View";
-import AdminProgramAdd from "./Components/Admin/Program/Add/View";
-import AdminProgramDetail from "./Components/Admin/Program/Detail/View";
-import AdminProgramUpdate from "./Components/Admin/Program/Update/View";
-import AdminProgramSearch from "./Components/Admin/Program/Search/Search";
-import AdminProgramSearchResult from "./Components/Admin/Program/Search/Result";
-// import AdminProgramThreadList from "./Components/Admin/Program/Thread/List";
-// import AdminProgramThreadDetail from "./Components/Admin/Program/Thread/Detail";
-
-// Program Category
-import AdminProgramCategoryList from "./Components/Admin/ProgramCategory/List/View";
-import AdminProgramCategoryAdd from "./Components/Admin/ProgramCategory/Add/View";
-import AdminProgramCategoryDetail from "./Components/Admin/ProgramCategory/Detail/View";
-import AdminProgramCategoryUpdate from "./Components/Admin/ProgramCategory/Update/View";
-import AdminProgramCategorySearch from "./Components/Admin/ProgramCategory/Search/Search";
-import AdminProgramCategorySearchResult from "./Components/Admin/ProgramCategory/Search/Result";
-
-import CustomerDashboard from "./Components/Customer/Dashboard/View";
-import CustomerAssistantFileList from "./Components/Customer/AssistantFile/List/View";
-// import CustomerAssistantFileAdd from "./Components/Customer/AssistantFile/Add/View";
-// import CustomerAssistantFileDetail from "./Components/Customer/AssistantFile/Detail/View";
-// import CustomerAssistantFileUpdate from "./Components/Customer/AssistantFile/Update/View";
-// import CustomerAssistantFileSearch from "./Components/Customer/AssistantFile/Search/Search";
-// import CustomerAssistantFileSearchResult from "./Components/Customer/AssistantFile/Search/Result";
-import CustomerAssistantList from "./Components/Customer/Assistant/List/View";
-// import CustomerAssistantAdd from "./Components/Customer/Assistant/Add/View";
-// import CustomerAssistantDetail from "./Components/Customer/Assistant/Detail/View";
-// import CustomerAssistantUpdate from "./Components/Customer/Assistant/Update/View";
-// import CustomerAssistantSearch from "./Components/Customer/Assistant/Search/Search";
-// import CustomerAssistantSearchResult from "./Components/Customer/Assistant/Search/Result";
-import CustomerAssistantThreadList from "./Components/Customer/AssistantThread/List/View";
-import CustomerAssistantThreadAddStep1 from "./Components/Customer/AssistantThread/Add/Step1/View";
-import CustomerAssistantThreadAddStep2Discussion from "./Components/Customer/AssistantThread/Add/Step2Discussion/View";
-import CustomerAssistantThreadAddStep3Discussion from "./Components/Customer/AssistantThread/Add/Step3Discussion/View";
-import CustomerAssistantThreadDetail from "./Components/Customer/AssistantThread/Detail/View";
-// import CustomerAssistantThreadUpdate from "./Components/Customer/AssistantThread/Update/View";
-// import CustomerAssistantThreadSearch from "./Components/Customer/AssistantThread/Search/Search";
-// import CustomerAssistantThreadSearchResult from "./Components/Customer/AssistantThread/Search/Result";
+// Admin Users
 import AdminUserList from "./Components/Admin/User/List";
 import AdminUserSearchResult from "./Components/Admin/User/Search/Result";
 import AdminUserSearch from "./Components/Admin/User/Search/Search";
@@ -116,6 +62,71 @@ import AdminUserAttachmentAdd from "./Components/Admin/User/Attachment/Add";
 import AdminUserAttachmentDetail from "./Components/Admin/User/Attachment/Detail";
 import AdminUserAttachmentUpdate from "./Components/Admin/User/Attachment/Update";
 
+// Admin Assistant Files
+import AdminAssistantFileList from "./Components/Admin/AssistantFile/List/View";
+import AdminAssistantFileAdd from "./Components/Admin/AssistantFile/Add/View";
+import AdminAssistantFileDetail from "./Components/Admin/AssistantFile/Detail/View";
+import AdminAssistantFileUpdate from "./Components/Admin/AssistantFile/Update/View";
+import AdminAssistantFileSearch from "./Components/Admin/AssistantFile/Search/Search";
+import AdminAssistantFileSearchResult from "./Components/Admin/AssistantFile/Search/Result";
+
+// Admin Assitant
+import AdminAssistantList from "./Components/Admin/Assistant/List/View";
+import AdminAssistantAdd from "./Components/Admin/Assistant/Add/View";
+import AdminAssistantDetail from "./Components/Admin/Assistant/Detail/View";
+import AdminAssistantUpdate from "./Components/Admin/Assistant/Update/View";
+import AdminAssistantSearch from "./Components/Admin/Assistant/Search/Search";
+import AdminAssistantSearchResult from "./Components/Admin/Assistant/Search/Result";
+import AdminAssistantThreadList from "./Components/Admin/Assistant/Thread/List";
+import AdminAssistantThreadDetail from "./Components/Admin/Assistant/Thread/Detail";
+
+// Admin Program
+import AdminProgramList from "./Components/Admin/Program/List/View";
+import AdminProgramAdd from "./Components/Admin/Program/Add/View";
+import AdminProgramDetail from "./Components/Admin/Program/Detail/View";
+import AdminProgramUpdate from "./Components/Admin/Program/Update/View";
+import AdminProgramSearch from "./Components/Admin/Program/Search/Search";
+import AdminProgramSearchResult from "./Components/Admin/Program/Search/Result";
+// import AdminProgramThreadList from "./Components/Admin/Program/Thread/List";
+// import AdminProgramThreadDetail from "./Components/Admin/Program/Thread/Detail";
+
+// Program Category
+import AdminProgramCategoryList from "./Components/Admin/ProgramCategory/List/View";
+import AdminProgramCategoryAdd from "./Components/Admin/ProgramCategory/Add/View";
+import AdminProgramCategoryDetail from "./Components/Admin/ProgramCategory/Detail/View";
+import AdminProgramCategoryUpdate from "./Components/Admin/ProgramCategory/Update/View";
+import AdminProgramCategorySearch from "./Components/Admin/ProgramCategory/Search/Search";
+import AdminProgramCategorySearchResult from "./Components/Admin/ProgramCategory/Search/Result";
+
+// Customer Dashboard
+import CustomerDashboard from "./Components/Customer/Dashboard/View";
+
+// Executables
+import CustomerExecutableList from "./Components/Customer/Executable/List/View";
+import CustomerExecutableAddStep1 from "./Components/Customer/Executable/Add/Step1/View";
+
+// import CustomerAssistantFileList from "./Components/Customer/AssistantFile/List/View";
+// // import CustomerAssistantFileAdd from "./Components/Customer/AssistantFile/Add/View";
+// // import CustomerAssistantFileDetail from "./Components/Customer/AssistantFile/Detail/View";
+// // import CustomerAssistantFileUpdate from "./Components/Customer/AssistantFile/Update/View";
+// // import CustomerAssistantFileSearch from "./Components/Customer/AssistantFile/Search/Search";
+// // import CustomerAssistantFileSearchResult from "./Components/Customer/AssistantFile/Search/Result";
+// import CustomerAssistantList from "./Components/Customer/Assistant/List/View";
+// // import CustomerAssistantAdd from "./Components/Customer/Assistant/Add/View";
+// // import CustomerAssistantDetail from "./Components/Customer/Assistant/Detail/View";
+// // import CustomerAssistantUpdate from "./Components/Customer/Assistant/Update/View";
+// // import CustomerAssistantSearch from "./Components/Customer/Assistant/Search/Search";
+// // import CustomerAssistantSearchResult from "./Components/Customer/Assistant/Search/Result";
+// import CustomerAssistantThreadList from "./Components/Customer/AssistantThread/List/View";
+// import CustomerAssistantThreadAddStep1 from "./Components/Customer/AssistantThread/Add/Step1/View";
+// import CustomerAssistantThreadAddStep2Discussion from "./Components/Customer/AssistantThread/Add/Step2Discussion/View";
+// import CustomerAssistantThreadAddStep3Discussion from "./Components/Customer/AssistantThread/Add/Step3Discussion/View";
+// import CustomerAssistantThreadDetail from "./Components/Customer/AssistantThread/Detail/View";
+// // import CustomerAssistantThreadUpdate from "./Components/Customer/AssistantThread/Update/View";
+// // import CustomerAssistantThreadSearch from "./Components/Customer/AssistantThread/Search/Search";
+// // import CustomerAssistantThreadSearchResult from "./Components/Customer/AssistantThread/Search/Result";
+
+
 function AppRoute() {
     return (
         <div class="is-widescreen is-size-5-desktop is-size-6-tablet is-size-7-mobile">
@@ -135,6 +146,18 @@ function AppRoute() {
                         <div class="column">
                             <section class="main-content columns is-fullheight">
                                 <Routes>
+                                    {/*
+                                    <Route exact path="/assistant-thread/:id" element={<CustomerAssistantThreadDetail/>}/>
+                                    <Route exact path="/assistant-threads/add/step-3-discussion" element={<CustomerAssistantThreadAddStep3Discussion/>}/>
+                                    <Route exact path="/assistant-threads/add/step-2-discussion" element={<CustomerAssistantThreadAddStep2Discussion/>}/>
+                                    <Route exact path="/assistant-threads/add/step-1" element={<CustomerAssistantThreadAddStep1/>}/>
+                                    <Route exact path="/assistant-threads" element={<CustomerAssistantThreadList/>}/>
+                                    */}
+
+                                    <Route exact path="/executables/add/step-1" element={<CustomerExecutableAddStep1/>}/>
+                                    <Route exact path="/executables" element={<CustomerExecutableList/>}/>
+                                    <Route exact path="/dashboard" element={<CustomerDashboard/>}/>
+
                                     <Route exact path="/admin/user/:cid/downgrade" element={<AdminUserDowngradeOperation/>}/>
                                     <Route exact path="/admin/user/:cid/upgrade" element={<AdminUserUpgradeOperation/>}/>
                                     <Route exact path="/admin/user/:cid/threads" element={<AdminUserDetailThreadList/>}/>
@@ -162,12 +185,7 @@ function AppRoute() {
                                     <Route exact path="/admin/users/search-result" element={<AdminUserSearchResult/>}/>
                                     <Route exact path="/admin/users/search" element={<AdminUserSearch/>}/>
                                     <Route exact path="/admin/users" element={<AdminUserList/>}/>
-                                    <Route exact path="/assistant-thread/:id" element={<CustomerAssistantThreadDetail/>}/>
-                                    <Route exact path="/assistant-threads/add/step-3-discussion" element={<CustomerAssistantThreadAddStep3Discussion/>}/>
-                                    <Route exact path="/assistant-threads/add/step-2-discussion" element={<CustomerAssistantThreadAddStep2Discussion/>}/>
-                                    <Route exact path="/assistant-threads/add/step-1" element={<CustomerAssistantThreadAddStep1/>}/>
-                                    <Route exact path="/assistant-threads" element={<CustomerAssistantThreadList/>}/>
-                                    <Route exact path="/dashboard" element={<CustomerDashboard/>}/>
+
                                     <Route exact path="/admin/assistant/:id/threads" element={<AdminAssistantThreadList/>}/>
                                     <Route exact path="/admin/assistant/:aid/thread/:tid" element={<AdminAssistantThreadDetail/>}/>
                                     <Route exact path="/admin/assistant/:id/update" element={<AdminAssistantUpdate/>}/>
@@ -177,7 +195,6 @@ function AppRoute() {
                                     <Route exact path="/admin/assistants/search" element={<AdminAssistantSearch/>}/>
                                     <Route exact path="/admin/assistants/add" element={<AdminAssistantAdd/>}/>
                                     <Route exact path="/admin/assistants" element={<AdminAssistantList/>}/>
-
 
                                     {/*<Route exact path="/admin/program/:id/threads" element={<AdminProgramThreadList/>}/>
                                     <Route exact path="/admin/program/:aid/thread/:tid" element={<AdminProgramThreadDetail/>}/>*/}

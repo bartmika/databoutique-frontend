@@ -202,8 +202,8 @@ export default props => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/assistant-threads" className={`has-text-grey-light ${location.pathname.includes("thread") && !location.pathname.includes("file") && "is-active"}`}>
-                                    <FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Assistant Threads
+                                <Link to="/executables" className={`has-text-grey-light ${location.pathname.includes("thread") && !location.pathname.includes("file") && "is-active"}`}>
+                                    <FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Executables
                                 </Link>
                             </li>
                         </ul>
