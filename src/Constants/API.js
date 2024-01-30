@@ -21,6 +21,63 @@ export const DATABOUTIQUE_TENANTS_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/tena
 export const DATABOUTIQUE_TENANT_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/tenant/{id}';
 
 /**
+ * Users
+ */
+
+export const DATABOUTIQUE_USERS_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users';
+export const DATABOUTIQUE_USERS_COUNT_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/count';
+export const DATABOUTIQUE_USER_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/user/{id}';
+export const DATABOUTIQUE_USER_ARCHIVE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/archive';
+export const DATABOUTIQUE_USER_CREATE_COMMENT_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/create-comment';
+export const DATABOUTIQUE_USER_UPGRADE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/upgrade';
+export const DATABOUTIQUE_USER_DOWNGRADE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/downgrade';
+export const DATABOUTIQUE_USER_AVATAR_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/avatar';
+
+/**
+ * Program Categories
+ */
+export const DATABOUTIQUE_PROGRAM_CATEGORYS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/program-categories";
+export const DATABOUTIQUE_PROGRAM_CATEGORY_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/program-category/{id}";
+export const DATABOUTIQUE_PROGRAM_CATEGORY_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/program-categories/select-options";
+
+/**
+ * Programs
+ */
+export const DATABOUTIQUE_PROGRAMS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/programs";
+export const DATABOUTIQUE_PROGRAM_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/program/{id}";
+export const DATABOUTIQUE_PROGRAM_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/programs/select-options";
+
+/**
+ * Files
+ */
+export const DATABOUTIQUE_FILES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/files";
+export const DATABOUTIQUE_FILE_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/file/{id}";
+export const DATABOUTIQUE_FILE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/files/select-options";
+
+/**
+ * Folders
+ */
+export const DATABOUTIQUE_FOLDERS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/folders";
+export const DATABOUTIQUE_FOLDER_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/folder/{id}";
+export const DATABOUTIQUE_FOLDER_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/folders/select-options";
+
+/**
+ * Executables
+ */
+export const DATABOUTIQUE_EXECUTABLES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executables";
+export const DATABOUTIQUE_EXECUTABLE_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executable/{id}";
+export const DATABOUTIQUE_EXECUTABLE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executables/select-options";
+
+/**
+ * Executable Messages
+ */
+export const DATABOUTIQUE_EXECUTABLE_MESSAGES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executable-messages";
+export const DATABOUTIQUE_EXECUTABLE_MESSAGE_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executable-message/{id}";
+export const DATABOUTIQUE_EXECUTABLE_MESSAGE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executable-messages/select-options";
+
+
+// ---------------------------- BELOW IS DEPRECATED ---------------------------- //
+/**
  * Assistant File
  */
 export const DATABOUTIQUE_ASSISTANT_FILES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/assistant-files";
@@ -59,18 +116,6 @@ export const DATABOUTIQUE_CLIENT_UPGRADE_OPERATION_API_ENDPOINT = HTTP_API_SERVE
 export const DATABOUTIQUE_CLIENT_DOWNGRADE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/customers/operation/downgrade';
 export const DATABOUTIQUE_CLIENT_AVATAR_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/customers/operation/avatar';
 
-/**
- * Users
- */
-
-export const DATABOUTIQUE_USERS_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users';
-export const DATABOUTIQUE_USERS_COUNT_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/count';
-export const DATABOUTIQUE_USER_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/user/{id}';
-export const DATABOUTIQUE_USER_ARCHIVE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/archive';
-export const DATABOUTIQUE_USER_CREATE_COMMENT_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/create-comment';
-export const DATABOUTIQUE_USER_UPGRADE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/upgrade';
-export const DATABOUTIQUE_USER_DOWNGRADE_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/downgrade';
-export const DATABOUTIQUE_USER_AVATAR_OPERATION_API_ENDPOINT = HTTP_API_SERVER + '/api/v1/users/operation/avatar';
 
 
 //----------------------------------------------------------------------------//

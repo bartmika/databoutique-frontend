@@ -144,6 +144,17 @@ export default props => {
                         </ul>
 
                         <p className="menu-label has-text-grey-light">
+                            Settings
+                        </p>
+                        <ul className="menu-list">
+                            <li>
+                                <Link to="/admin/program-categories" className={`has-text-grey-light ${location.pathname.includes("program-categor") && "is-active"}`}>
+                                    <FontAwesomeIcon className="fas" icon={faQuestionCircle} />&nbsp;Program Categories
+                                </Link>
+                            </li>
+                        </ul>
+
+                        <p className="menu-label has-text-grey-light">
                             Account
                         </p>
                         <ul className="menu-list">

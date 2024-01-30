@@ -41,6 +41,14 @@ import AdminAssistantSearch from "./Components/Admin/Assistant/Search/Search";
 import AdminAssistantSearchResult from "./Components/Admin/Assistant/Search/Result";
 import AdminAssistantThreadList from "./Components/Admin/Assistant/Thread/List";
 import AdminAssistantThreadDetail from "./Components/Admin/Assistant/Thread/Detail";
+
+import AdminProgramCategoryList from "./Components/Admin/ProgramCategory/List/View";
+import AdminProgramCategoryAdd from "./Components/Admin/ProgramCategory/Add/View";
+import AdminProgramCategoryDetail from "./Components/Admin/ProgramCategory/Detail/View";
+import AdminProgramCategoryUpdate from "./Components/Admin/ProgramCategory/Update/View";
+import AdminProgramCategorySearch from "./Components/Admin/ProgramCategory/Search/Search";
+import AdminProgramCategorySearchResult from "./Components/Admin/ProgramCategory/Search/Result";
+
 import CustomerDashboard from "./Components/Customer/Dashboard/View";
 import CustomerAssistantFileList from "./Components/Customer/AssistantFile/List/View";
 // import CustomerAssistantFileAdd from "./Components/Customer/AssistantFile/Add/View";
@@ -151,6 +159,15 @@ function AppRoute() {
                                     <Route exact path="/admin/assistants/search" element={<AdminAssistantSearch/>}/>
                                     <Route exact path="/admin/assistants/add" element={<AdminAssistantAdd/>}/>
                                     <Route exact path="/admin/assistants" element={<AdminAssistantList/>}/>
+
+                                    <Route exact path="/admin/program-category/:id/update" element={<AdminProgramCategoryUpdate/>}/>
+                                    <Route exact path="/admin/program-category/:id/edit" element={<AdminProgramCategoryUpdate/>}/>
+                                    <Route exact path="/admin/program-category/:id" element={<AdminProgramCategoryDetail/>}/>
+                                    <Route exact path="/admin/program-categories/search-result" element={<AdminProgramCategorySearchResult/>}/>
+                                    <Route exact path="/admin/program-categories/search" element={<AdminProgramCategorySearch/>}/>
+                                    <Route exact path="/admin/program-categories/add" element={<AdminProgramCategoryAdd/>}/>
+                                    <Route exact path="/admin/program-categories" element={<AdminProgramCategoryList/>}/>
+
                                     <Route exact path="/admin/assistant-file/:id/update" element={<AdminAssistantFileUpdate/>}/>
                                     <Route exact path="/admin/assistant-file/:id/edit" element={<AdminAssistantFileUpdate/>}/>
                                     <Route exact path="/admin/assistant-file/:id" element={<AdminAssistantFileDetail/>}/>
