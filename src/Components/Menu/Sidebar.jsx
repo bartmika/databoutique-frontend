@@ -126,7 +126,7 @@ export default props => {
                                     <FontAwesomeIcon className="fas" icon={faTachometer} />&nbsp;Dashboard
                                 </Link>
                             </li>
-                            <li>
+                            {/*<li>
                                 <Link to="/admin/assistant-files" className={`has-text-grey-light ${location.pathname.includes("assistant-file") && "is-active"}`}>
                                     <FontAwesomeIcon className="fas" icon={faFile} />&nbsp;Assistant Files
                                 </Link>
@@ -135,12 +135,17 @@ export default props => {
                                 <Link to="/admin/assistants" className={`has-text-grey-light ${location.pathname.includes("assistant") && !location.pathname.includes("file") && "is-active"}`}>
                                     <FontAwesomeIcon className="fas" icon={faRobot} />&nbsp;Assistants
                                 </Link>
-                        </li>
-                        <li>
-                            <Link to="/admin/users" className={`has-text-grey-light ${location.pathname.includes("users") && !location.pathname.includes("file") && "is-active"}`}>
-                                <FontAwesomeIcon className="fas" icon={faUsers} />&nbsp;Users
-                            </Link>
-                        </li>
+                            </li>*/}
+                            <li>
+                                <Link to="/admin/programs" className={`has-text-grey-light ${location.pathname.includes("program") && !location.pathname.includes("categor") && "is-active"}`}>
+                                    <FontAwesomeIcon className="fas" icon={faRobot} />&nbsp;Programs
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/admin/users" className={`has-text-grey-light ${location.pathname.includes("users") && !location.pathname.includes("file") && "is-active"}`}>
+                                    <FontAwesomeIcon className="fas" icon={faUsers} />&nbsp;Users
+                                </Link>
+                            </li>
                         </ul>
 
                         <p className="menu-label has-text-grey-light">
@@ -188,7 +193,7 @@ export default props => {
                     </nav>
                     <aside className="menu p-4">
                         <p className="menu-label has-text-grey-light">
-                            Staff
+                            Menu
                         </p>
                         <ul className="menu-list">
                             <li>

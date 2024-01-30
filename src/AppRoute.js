@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { RecoilRoot } from 'recoil';
 
+// System, Login, Register, Index, etc
 import LogoutRedirector from "./Components/Gateway/LogoutRedirector";
 import Login from "./Components/Gateway/Login";
 import Index from "./Components/Gateway/Index";
@@ -19,20 +20,26 @@ import NotFoundError from "./Components/Misc/NotFoundError";
 import NotImplementedError from "./Components/Misc/NotImplementedError";
 import ForgotPassword from "./Components/Gateway/ForgotPassword";
 import PasswordReset from "./Components/Gateway/PasswordReset";
+
+// Root
 import RootDashboard from "./Components/Root/Dashboard";
 import RootTenantList from "./Components/Root/Tenant/List";
 import RootTenantDetail from "./Components/Root/Tenant/Detail";
 import RootTenantUpdate from "./Components/Root/Tenant/Update";
 import ToTenantRedirector from "./Components/Root/ToTenantRedirector";
+
+// Admin Dashboard, Help
 import AdminDashboard from "./Components/Admin/Dashboard/View";
 import AdminDashboardCommentList from "./Components/Admin/Dashboard/Comments/List";
 import AdminHelp from "./Components/Admin/Help";
+
 import AdminAssistantFileList from "./Components/Admin/AssistantFile/List/View";
 import AdminAssistantFileAdd from "./Components/Admin/AssistantFile/Add/View";
 import AdminAssistantFileDetail from "./Components/Admin/AssistantFile/Detail/View";
 import AdminAssistantFileUpdate from "./Components/Admin/AssistantFile/Update/View";
 import AdminAssistantFileSearch from "./Components/Admin/AssistantFile/Search/Search";
 import AdminAssistantFileSearchResult from "./Components/Admin/AssistantFile/Search/Result";
+
 import AdminAssistantList from "./Components/Admin/Assistant/List/View";
 import AdminAssistantAdd from "./Components/Admin/Assistant/Add/View";
 import AdminAssistantDetail from "./Components/Admin/Assistant/Detail/View";
@@ -42,6 +49,17 @@ import AdminAssistantSearchResult from "./Components/Admin/Assistant/Search/Resu
 import AdminAssistantThreadList from "./Components/Admin/Assistant/Thread/List";
 import AdminAssistantThreadDetail from "./Components/Admin/Assistant/Thread/Detail";
 
+// Program
+import AdminProgramList from "./Components/Admin/Program/List/View";
+import AdminProgramAdd from "./Components/Admin/Program/Add/View";
+import AdminProgramDetail from "./Components/Admin/Program/Detail/View";
+import AdminProgramUpdate from "./Components/Admin/Program/Update/View";
+import AdminProgramSearch from "./Components/Admin/Program/Search/Search";
+import AdminProgramSearchResult from "./Components/Admin/Program/Search/Result";
+// import AdminProgramThreadList from "./Components/Admin/Program/Thread/List";
+// import AdminProgramThreadDetail from "./Components/Admin/Program/Thread/Detail";
+
+// Program Category
 import AdminProgramCategoryList from "./Components/Admin/ProgramCategory/List/View";
 import AdminProgramCategoryAdd from "./Components/Admin/ProgramCategory/Add/View";
 import AdminProgramCategoryDetail from "./Components/Admin/ProgramCategory/Detail/View";
@@ -160,6 +178,17 @@ function AppRoute() {
                                     <Route exact path="/admin/assistants/add" element={<AdminAssistantAdd/>}/>
                                     <Route exact path="/admin/assistants" element={<AdminAssistantList/>}/>
 
+
+                                    {/*<Route exact path="/admin/program/:id/threads" element={<AdminProgramThreadList/>}/>
+                                    <Route exact path="/admin/program/:aid/thread/:tid" element={<AdminProgramThreadDetail/>}/>*/}
+                                    <Route exact path="/admin/program/:id/update" element={<AdminProgramUpdate/>}/>
+                                    <Route exact path="/admin/program/:id/edit" element={<AdminProgramUpdate/>}/>
+                                    <Route exact path="/admin/program/:id" element={<AdminProgramDetail/>}/>
+                                    <Route exact path="/admin/programs/search-result" element={<AdminProgramSearchResult/>}/>
+                                    <Route exact path="/admin/programs/search" element={<AdminProgramSearch/>}/>
+                                    <Route exact path="/admin/programs/add" element={<AdminProgramAdd/>}/>
+                                    <Route exact path="/admin/programs" element={<AdminProgramList/>}/>
+
                                     <Route exact path="/admin/program-category/:id/update" element={<AdminProgramCategoryUpdate/>}/>
                                     <Route exact path="/admin/program-category/:id/edit" element={<AdminProgramCategoryUpdate/>}/>
                                     <Route exact path="/admin/program-category/:id" element={<AdminProgramCategoryDetail/>}/>
@@ -175,6 +204,7 @@ function AppRoute() {
                                     <Route exact path="/admin/assistant-files/search" element={<AdminAssistantFileSearch/>}/>
                                     <Route exact path="/admin/assistant-files/add" element={<AdminAssistantFileAdd/>}/>
                                     <Route exact path="/admin/assistant-files" element={<AdminAssistantFileList/>}/>
+
                                     <Route exact path="/admin/help" element={<AdminHelp/>}/>
                                     <Route exact path="/admin/dashboard" element={<AdminDashboard/>}/>
                                     <Route exact path="/admin/dashboard/comments" element={<AdminDashboardCommentList/>}/>

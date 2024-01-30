@@ -856,6 +856,34 @@ export const commentFilterSortState = atom({
     effects_UNSTABLE: [persistAtom],
 });
 
+
+// Programs
+
+export const programFilterJoinDatetState = atom({
+    key: 'programFilterJoinDatet',
+    default: null,
+    effects_UNSTABLE: [persistAtom],
+});
+
+export const programFilterStatusState = atom({
+    key: 'programFilterStatus',
+    default: 1, // 1=active
+    effects_UNSTABLE: [persistAtom],
+});
+
+export const programFilterTypeState = atom({
+    key: 'programFilterType',
+    default: 0,
+    effects_UNSTABLE: [persistAtom],
+});
+
+export const programFilterSortState = atom({
+    key: 'programFilterSort',
+    default: "created_at,ASC",
+    effects_UNSTABLE: [persistAtom],
+});
+
+
 // ------------------------------------------------ Register ------------------------------------------------ //
 
 export const REGISTER_JOB_SEEKER_STATE_DEFAULT = {
