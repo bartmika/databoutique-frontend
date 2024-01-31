@@ -7,6 +7,8 @@ import { useRecoilState } from 'recoil';
 
 import { getProgramDetailAPI } from "../../../../../API/Program";
 import { postExecutableCreateAPI } from "../../../../../API/Executable";
+import { getUploadDirectorySelectOptionListAPI } from "../../../../../API/UploadDirectory";
+import FormMultiSelectFieldForUploadDirectories from "../../../../Reusable/FormMultiSelectFieldForUploadDirectories";
 import DataDisplayRowText from "../../../../Reusable/DataDisplayRowText";
 import FormTextareaField from "../../../../Reusable/FormTextareaField";
 import FormErrorBox from "../../../../Reusable/FormErrorBox";
@@ -39,7 +41,8 @@ function CustomerExecutableAddStep2() {
     const [forceURL, setForceURL] = useState("");
     const [isFetching, setFetching] = useState(false);
     const [program, setProgram] = useState({});
-    const [message, setMessage] = useState("");
+    const [question, setQuestion] = useState("");
+    const [uploadDirectoryIDs, setUploadDirectoryIDs] = useState([]);
 
     ////
     //// Event handling.
@@ -56,7 +59,8 @@ function CustomerExecutableAddStep2() {
         const decamelizedData = {
             program_id: program.id,
             user_id: currentUser.id,
-            message: message,
+            question: question,
+            upload_directory_ids: uploadDirectoryIDs,
         };
         postExecutableCreateAPI(
             decamelizedData,
@@ -79,7 +83,7 @@ function CustomerExecutableAddStep2() {
         console.log("onAddSuccess: Starting...");
         console.log(response);
 
-        // Add a temporary banner message in the app and then clear itself after 2 seconds.
+        // Add a temporary banner question in the app and then clear itself after 2 seconds.
         setTopAlertMessage("Executable thread created");
         setTopAlertStatus("success");
         setTimeout(() => {
@@ -89,14 +93,14 @@ function CustomerExecutableAddStep2() {
         }, 2000);
 
         // Redirect the user to the user attachments page.
-        setForceURL("/program-thread/"+response.id);
+        setForceURL("/executable/"+response.id);
     }
 
     function onAddError(apiErr) {
         console.log("onAddError: Starting...");
         setErrors(apiErr);
 
-        // Add a temporary banner message in the app and then clear itself after 2 seconds.
+        // Add a temporary banner question in the app and then clear itself after 2 seconds.
         setTopAlertMessage("Failed submitting");
         setTopAlertStatus("danger");
         setTimeout(() => {
@@ -119,13 +123,13 @@ function CustomerExecutableAddStep2() {
 
     // --- DETAIL --- //
 
-    function onSuccess(response){
-        console.log("onSuccess: Starting...");
+    function onProgramDetailSuccess(response){
+        console.log("onProgramDetailSuccess: Starting...");
         setProgram(response);
     }
 
-    function onError(apiErr) {
-        console.log("onError: Starting...");
+    function onProgramDetailError(apiErr) {
+        console.log("onProgramDetailError: Starting...");
         setErrors(apiErr);
 
         // The following code will cause the screen to scroll to the top of
@@ -135,8 +139,8 @@ function CustomerExecutableAddStep2() {
         scroll.scrollToTop();
     }
 
-    function onDone() {
-        console.log("onDone: Starting...");
+    function onProgramDetailDone() {
+        console.log("onProgramDetailDone: Starting...");
         setFetching(false);
     }
 
@@ -160,9 +164,9 @@ function CustomerExecutableAddStep2() {
             setFetching(true);
             getProgramDetailAPI(
                 addExecutable.programID,
-                onSuccess,
-                onError,
-                onDone,
+                onProgramDetailSuccess,
+                onProgramDetailError,
+                onProgramDetailDone,
                 onUnauthorized
             );
         }
@@ -224,7 +228,7 @@ function CustomerExecutableAddStep2() {
                                     <>
                                         {program && <>
 
-                                            <p className="pb-4 has-text-grey">To begin please fill out the following message to submit into the system:</p>
+                                            <p className="pb-4 has-text-grey">To begin please fill out the following question to submit into the system:</p>
 
                                                 <DataDisplayRowText
                                                     label="Program"
@@ -236,19 +240,30 @@ function CustomerExecutableAddStep2() {
                                                     value={program.description}
                                                 />
 
+                                                <FormMultiSelectFieldForUploadDirectories
+                                                    label="Load all files within the following directories(s) (Optional)"
+                                                    name="uploadDirectoryIDs"
+                                                    placeholder="Pick files"
+                                                    uploadDirectories={uploadDirectoryIDs}
+                                                    setUploadDirectories={setUploadDirectoryIDs}
+                                                    errorText={errors && errors.uploadDirectoryIDs}
+                                                    helpText="Pick the files you want to review."
+                                                    isRequired={true}
+                                                    maxWidth="320px"
+                                                />
+
                                                 <FormTextareaField
-                                                    label="Message"
-                                                    name="message"
+                                                    label="Question"
+                                                    name="question"
                                                     placeholder="Text input"
-                                                    value={message}
-                                                    errorText={errors && errors.message}
+                                                    value={question}
+                                                    errorText={errors && errors.question}
                                                     helpText="Type your first question to the program here."
-                                                    onChange={(e)=>setMessage(e.target.value)}
+                                                    onChange={(e)=>setQuestion(e.target.value)}
                                                     isRequired={true}
                                                     maxWidth="280px"
                                                     rows={4}
                                                 />
-
 
                                         </>}
                                     </>}

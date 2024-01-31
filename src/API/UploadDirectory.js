@@ -5,8 +5,28 @@ import { DateTime } from "luxon";
 import {
     DATABOUTIQUE_UPLOAD_DIRECTORIES_API_ENDPOINT,
     DATABOUTIQUE_UPLOAD_DIRECTORY_API_ENDPOINT,
+    DATABOUTIQUE_UPLOAD_DIRECTORY_SELECT_OPTIONS_API_ENDPOINT
 } from "../Constants/API";
 
+export function getUploadDirectorySelectOptionListAPI(onSuccessCallback, onErrorCallback, onDoneCallback, onUnauthorizedCallback) {
+    const axios = getCustomAxios(onUnauthorizedCallback);
+
+    // The following code will generate the url argument for the url based on the map.
+    let aURL = DATABOUTIQUE_UPLOAD_DIRECTORY_SELECT_OPTIONS_API_ENDPOINT;
+
+    axios.get(aURL).then((successResponse) => {
+        const responseData = successResponse.data;
+
+        // Snake-case from API to camel-case for React.
+        const data = camelizeKeys(responseData);
+
+        // Return the callback data.
+        onSuccessCallback(data);
+    }).catch( (exception) => {
+        let errors = camelizeKeys(exception);
+        onErrorCallback(errors);
+    }).then(onDoneCallback);
+}
 
 export function getUploadDirectoryListAPI(filtersMap=new Map(), onSuccessCallback, onErrorCallback, onDoneCallback, onUnauthorizedCallback) {
     const axios = getCustomAxios(onUnauthorizedCallback);

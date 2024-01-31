@@ -86,16 +86,16 @@ function CustomerDashboard() {
                     <section class="hero is-medium is-link">
                       <div class="hero-body">
                         <p class="title">
-                            <FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Assistant Threads
+                            <FontAwesomeIcon className="fas" icon={faCodeBranch} />&nbsp;Executables
                         </p>
                         <p class="subtitle">
                           Begin or resume a discussion with an assistant by clicking below:
                           <br />
                           <br />
-                          <Link to={"/assistant-threads"}>View Threads&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                          <Link to={"/executables"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                           <br />
                           <br />
-                          <Link to={"/assistant-threads/add/step-1"}>Add&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                          <Link to={"/executables/add/step-1"}>Add&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                         </p>
                       </div>
                     </section>
