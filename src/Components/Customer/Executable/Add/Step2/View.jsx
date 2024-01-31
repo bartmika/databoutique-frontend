@@ -227,12 +227,12 @@ function CustomerExecutableAddStep2() {
                                             <p className="pb-4 has-text-grey">To begin please fill out the following message to submit into the system:</p>
 
                                                 <DataDisplayRowText
-                                                    label="Program Name"
+                                                    label="Program"
                                                     value={program.name}
                                                 />
 
                                                 <DataDisplayRowText
-                                                    label="Program Description"
+                                                    label="Description"
                                                     value={program.description}
                                                 />
 

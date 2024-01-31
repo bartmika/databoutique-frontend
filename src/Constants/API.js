@@ -48,18 +48,18 @@ export const DATABOUTIQUE_PROGRAM_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/prog
 export const DATABOUTIQUE_PROGRAM_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/programs/select-options";
 
 /**
- * Files
+ * Upload Directories
  */
-export const DATABOUTIQUE_FILES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/files";
-export const DATABOUTIQUE_FILE_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/file/{id}";
-export const DATABOUTIQUE_FILE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/files/select-options";
+export const DATABOUTIQUE_UPLOAD_DIRECTORIES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/upload-directories";
+export const DATABOUTIQUE_UPLOAD_DIRECTORY_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/upload-directory/{id}";
+export const DATABOUTIQUE_UPLOAD_DIRECTORY_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/upload-directories/select-options";
 
 /**
- * Folders
+ * Upload Files
  */
-export const DATABOUTIQUE_FOLDERS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/folders";
-export const DATABOUTIQUE_FOLDER_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/folder/{id}";
-export const DATABOUTIQUE_FOLDER_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/folders/select-options";
+export const DATABOUTIQUE_UPLOAD_FILES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/upload-files";
+export const DATABOUTIQUE_UPLOAD_FILE_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/upload-file/{id}";
+export const DATABOUTIQUE_UPLOAD_FILE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/upload-files/select-options";
 
 /**
  * Executables

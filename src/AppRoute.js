@@ -101,6 +101,15 @@ import AdminProgramCategorySearchResult from "./Components/Admin/ProgramCategory
 // Customer Dashboard
 import CustomerDashboard from "./Components/Customer/Dashboard/View";
 
+// Customer Upload Directory
+import CustomerUploadDirectoryList from "./Components/Customer/UploadDirectory/List/View";
+import CustomerUploadDirectoryAdd from "./Components/Customer/UploadDirectory/Add/View";
+import CustomerUploadDirectoryDetail from "./Components/Customer/UploadDirectory/Detail/View";
+import CustomerUploadDirectoryUploadFileList from "./Components/Customer/UploadDirectory/Detail/UploadFile/List/View";
+import CustomerUploadDirectoryUploadFileAdd from "./Components/Customer/UploadDirectory/Detail/UploadFile/Add/View";
+import CustomerUploadDirectoryUploadFileDetail from "./Components/Customer/UploadDirectory/Detail/UploadFile/Detail/View";
+import CustomerUploadDirectoryUploadFileUpdate from "./Components/Customer/UploadDirectory/Detail/UploadFile/Update/View";
+
 // Executables
 import CustomerExecutableList from "./Components/Customer/Executable/List/View";
 import CustomerExecutableAddStep1 from "./Components/Customer/Executable/Add/Step1/View";
@@ -158,6 +167,15 @@ function AppRoute() {
                                     <Route exact path="/executables/add/step-2" element={<CustomerExecutableAddStep2/>}/>
                                     <Route exact path="/executables/add/step-1" element={<CustomerExecutableAddStep1/>}/>
                                     <Route exact path="/executables" element={<CustomerExecutableList/>}/>
+
+                                    <Route exact path="/upload-directory/:udid/upload-file/:ufid/edit" element={<CustomerUploadDirectoryUploadFileUpdate/>}/>
+                                    <Route exact path="/upload-directory/:udid/upload-file/:ufid" element={<CustomerUploadDirectoryUploadFileDetail/>}/>
+                                    <Route exact path="/upload-directory/:udid/upload-files/add" element={<CustomerUploadDirectoryUploadFileAdd/>}/>
+                                    <Route exact path="/upload-directory/:udid/upload-files" element={<CustomerUploadDirectoryUploadFileList/>}/>
+                                    <Route exact path="/upload-directory/:id" element={<CustomerUploadDirectoryDetail/>}/>
+                                    <Route exact path="/upload-directories/add" element={<CustomerUploadDirectoryAdd/>}/>
+                                    <Route exact path="/upload-directories" element={<CustomerUploadDirectoryList/>}/>
+
                                     <Route exact path="/dashboard" element={<CustomerDashboard/>}/>
 
                                     <Route exact path="/admin/user/:cid/downgrade" element={<AdminUserDowngradeOperation/>}/>

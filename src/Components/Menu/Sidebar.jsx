@@ -209,6 +209,17 @@ export default props => {
                         </ul>
 
                         <p className="menu-label has-text-grey-light">
+                            Settings
+                        </p>
+                        <ul className="menu-list">
+                            <li>
+                                <Link to="/upload-directories" className={`has-text-grey-light ${location.pathname.includes("upload") && "is-active"}`}>
+                                    <FontAwesomeIcon className="fas" icon={faFile} />&nbsp;My Uploads
+                                </Link>
+                            </li>
+                        </ul>
+
+                        <p className="menu-label has-text-grey-light">
                             Account
                         </p>
                         <ul className="menu-list">
