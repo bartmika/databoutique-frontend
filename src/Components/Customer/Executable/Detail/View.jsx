@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faTrash, faTable, faCodeBranch, faTasks, faTachometer, faPlus, faTimesCircle, faCheckCircle, faUserCircle, faGauge, faPencil, faUsers, faIdCard, faAddressBook, faContactCard, faChartPie, faCogs, faEye, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useRecoilState } from 'recoil';
 
-import { getExecutableDetailAPI, deleteExecutableAPI } from "../../../../API/Executable";
+import { getExecutableDetailAPI, deleteExecutableAPI, postExecutableQuestionSubmissionOperationAPI } from "../../../../API/Executable";
 import FormErrorBox from "../../../Reusable/FormErrorBox";
 import DataDisplayRowText from "../../../Reusable/DataDisplayRowText";
 import FormInputField from "../../../Reusable/FormInputField";
@@ -67,9 +67,18 @@ function CustomerExecutableDetail() {
     const onSubmitClick = (e) => {
         const payload = {
             executable_id: id,
-            text: message,
+            content: message,
         };
+        postExecutableQuestionSubmissionOperationAPI(
+            payload,
+            onPostMessageSuccess,
+            onPostMessageError,
+            onPostMessageDone,
+            onUnauthorized
+        );
         setShowDeleteModal(false);
+        setFetching(true);
+        setErrors({});
     }
 
     const onDeleteConfirmButtonClick = (e) => {
@@ -83,13 +92,15 @@ function CustomerExecutableDetail() {
             onUnauthorized
         );
         setShowDeleteModal(false);
+        setFetching(true);
+        setErrors({});
     }
 
     ////
     //// API.
     ////
 
-    // --- (ASSISTANT THREAD) DETAIL --- //
+    // --- DETAIL --- //
 
     function onSuccess(response){
         console.log("onSuccess: Starting...");
@@ -126,35 +137,7 @@ function CustomerExecutableDetail() {
         setFetching(false);
     }
 
-    // --- (ASSISTANT MESSAGES) LIST --- //
-
-    function onExecutableListSuccess(response){
-        console.log("onExecutableListSuccess: Starting...");
-        if (response.results !== null) {
-            setListData(response);
-            if (response.hasNextPage) {
-                setNextCursor(response.nextCursor); // For pagination purposes.
-            }
-        }
-    }
-
-    function onExecutableListError(apiErr) {
-        console.log("onExecutableListError: Starting...");
-        setErrors(apiErr);
-
-        // The following code will cause the screen to scroll to the top of
-        // the page. Please see ``react-scroll`` for more information:
-        // https://github.com/fisshy/react-scroll
-        var scroll = Scroll.animateScroll;
-        scroll.scrollToTop();
-    }
-
-    function onExecutableListDone() {
-        console.log("onExecutableListDone: Starting...");
-        setFetching(false);
-    }
-
-    // --- (ASSISTANT THREAD) DELETE --- //
+    // --- DELETE --- //
 
     function onExecutableDeleteSuccess(response){
         console.log("onExecutableDeleteSuccess: Starting..."); // For debugging purposes only.
@@ -197,22 +180,23 @@ function CustomerExecutableDetail() {
 
     // --- CREATE MESSAGE --- //
 
-    function onExecutableMessageSuccess(response){
+    function onPostMessageSuccess(response){
         // For debugging purposes only.
-        console.log("onExecutableMessageSuccess: Starting...");
+        console.log("onPostMessageSuccess: Starting...");
         console.log(response);
 
         // Add a temporary banner message in the app and then clear itself after 2 seconds.
-        setTopAlertMessage("Executable message created");
+        setTopAlertMessage("Submitted successfully");
         setTopAlertStatus("success");
         setTimeout(() => {
-            console.log("onExecutableMessageSuccess: Delayed for 2 seconds.");
-            console.log("onExecutableMessageSuccess: topAlertMessage, topAlertStatus:", topAlertMessage, topAlertStatus);
+            console.log("onPostMessageSuccess: Delayed for 2 seconds.");
+            console.log("onPostMessageSuccess: topAlertMessage, topAlertStatus:", topAlertMessage, topAlertStatus);
             setTopAlertMessage("");
         }, 2000);
 
         // Fetch the latest list.
         setFetching(true);
+        setErrors({});
         getExecutableDetailAPI(
             id,
             onSuccess,
@@ -222,8 +206,8 @@ function CustomerExecutableDetail() {
         );
     }
 
-    function onExecutableMessageError(apiErr) {
-        console.log("onExecutableMessageError: Starting...");
+    function onPostMessageError(apiErr) {
+        console.log("onPostMessageError: Starting...");
         setErrors(apiErr);
 
         // The following code will cause the screen to scroll to the top of
@@ -233,8 +217,8 @@ function CustomerExecutableDetail() {
         scroll.scrollToTop();
     }
 
-    function onExecutableMessageDone() {
-        console.log("onExecutableMessageDone: Starting...");
+    function onPostMessageDone() {
+        console.log("onPostMessageDone: Starting...");
         setFetching(false);
     }
 

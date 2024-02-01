@@ -67,6 +67,7 @@ export const DATABOUTIQUE_UPLOAD_FILE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SER
 export const DATABOUTIQUE_EXECUTABLES_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executables";
 export const DATABOUTIQUE_EXECUTABLE_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executable/{id}";
 export const DATABOUTIQUE_EXECUTABLE_SELECT_OPTIONS_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executables/select-options";
+export const DATABOUTIQUE_EXECUTABLE_QUESTION_SUBMISSION_OPERATION_API_ENDPOINT = HTTP_API_SERVER + "/api/v1/executables/operations/question-submission";
 
 /**
  * Executable Messages

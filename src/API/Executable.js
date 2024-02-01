@@ -5,6 +5,7 @@ import { DateTime } from "luxon";
 import {
     DATABOUTIQUE_EXECUTABLES_API_ENDPOINT,
     DATABOUTIQUE_EXECUTABLE_API_ENDPOINT,
+    DATABOUTIQUE_EXECUTABLE_QUESTION_SUBMISSION_OPERATION_API_ENDPOINT,
 } from "../Constants/API";
 
 
@@ -110,6 +111,24 @@ export function putExecutableUpdateAPI(decamelizedData, onSuccessCallback, onErr
 export function deleteExecutableAPI(id, onSuccessCallback, onErrorCallback, onDoneCallback, onUnauthorizedCallback) {
     const axios = getCustomAxios(onUnauthorizedCallback);
     axios.delete(DATABOUTIQUE_EXECUTABLE_API_ENDPOINT.replace("{id}", id)).then((successResponse) => {
+        const responseData = successResponse.data;
+
+        // Snake-case from API to camel-case for React.
+        const data = camelizeKeys(responseData);
+
+        // Return the callback data.
+        onSuccessCallback(data);
+    }).catch( (exception) => {
+        let errors = camelizeKeys(exception);
+        onErrorCallback(errors);
+    }).then(onDoneCallback);
+}
+
+export function postExecutableQuestionSubmissionOperationAPI(decamelizedData, onSuccessCallback, onErrorCallback, onDoneCallback, onUnauthorizedCallback) {
+    const axios = getCustomAxios(onUnauthorizedCallback);
+
+    // Run the API POST call.
+    axios.post(DATABOUTIQUE_EXECUTABLE_QUESTION_SUBMISSION_OPERATION_API_ENDPOINT, decamelizedData).then((successResponse) => {
         const responseData = successResponse.data;
 
         // Snake-case from API to camel-case for React.
