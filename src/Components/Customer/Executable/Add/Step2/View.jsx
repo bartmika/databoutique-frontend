@@ -84,7 +84,7 @@ function CustomerExecutableAddStep2() {
         console.log(response);
 
         // Add a temporary banner question in the app and then clear itself after 2 seconds.
-        setTopAlertMessage("Executable thread created");
+        setTopAlertMessage("Executable created");
         setTopAlertStatus("success");
         setTimeout(() => {
             console.log("onAddSuccess: Delayed for 2 seconds.");

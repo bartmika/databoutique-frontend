@@ -114,6 +114,7 @@ import CustomerUploadDirectoryUploadFileUpdate from "./Components/Customer/Uploa
 import CustomerExecutableList from "./Components/Customer/Executable/List/View";
 import CustomerExecutableAddStep1 from "./Components/Customer/Executable/Add/Step1/View";
 import CustomerExecutableAddStep2 from "./Components/Customer/Executable/Add/Step2/View";
+import CustomerExecutableDetail from "./Components/Customer/Executable/Detail/View";
 
 // import CustomerAssistantFileList from "./Components/Customer/AssistantFile/List/View";
 // // import CustomerAssistantFileAdd from "./Components/Customer/AssistantFile/Add/View";
@@ -164,6 +165,7 @@ function AppRoute() {
                                     <Route exact path="/assistant-threads" element={<CustomerAssistantThreadList/>}/>
                                     */}
 
+                                    <Route exact path="/executable/:id" element={<CustomerExecutableDetail/>}/>
                                     <Route exact path="/executables/add/step-2" element={<CustomerExecutableAddStep2/>}/>
                                     <Route exact path="/executables/add/step-1" element={<CustomerExecutableAddStep1/>}/>
                                     <Route exact path="/executables" element={<CustomerExecutableList/>}/>

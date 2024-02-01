@@ -20,7 +20,7 @@ function CustomerExecutableListDesktop(props) {
                     <thead>
                         <tr>
                             <th>
-                                Executable Name
+                                Question
                             </th>
                             <th>
                                 Created At
@@ -38,7 +38,7 @@ function CustomerExecutableListDesktop(props) {
                     <tbody>
                         {listData && listData.results && listData.results.map(function(datum, i){
                             return <tr>
-                                <td data-label="Name">{datum.assistantName}</td>
+                                <td data-label="Name">{datum.question}</td>
                                 <td data-label="Created At">{datum.createdAt}</td>
                                 <td data-label="Last Modified At">{datum.modifiedAt}</td>
                                 <td className="is-actions-cell">

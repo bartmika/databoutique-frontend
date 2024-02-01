@@ -20,7 +20,7 @@ function CustomerExecutableListMobile(props) {
             {listData && listData.results && listData.results.map(function(datum, i){
                 return <div className="mb-5">
                     <hr />
-                    <strong>Executable Name:</strong>&nbsp;{datum.assistantName}
+                    <strong>Question:</strong>&nbsp;{datum.question}
                     <br />
                     <br />
                     <Link to={`/executable/${datum.id}`} className="button is-primary is-fullwidth-mobile" type="button">
