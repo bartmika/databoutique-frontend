@@ -37,6 +37,7 @@ function AdminProgramAdd() {
     const [description, setDescription] = useState("");
     const [instructions, setInstructions] = useState("");
     const [model, setModel] = useState("gpt-3.5-turbo-1106");
+    const [businessFunction, setBusinessFunction] = useState(0);
 
     ////
     //// Event handling.
@@ -56,6 +57,7 @@ function AdminProgramAdd() {
             description: description,
             instructions: instructions,
             model: model,
+            business_function: businessFunction,
         };
         postProgramCreateAPI(
             decamelizedData,
@@ -230,6 +232,26 @@ function AdminProgramAdd() {
                                         onChange={(e)=>setModel(e.target.value)}
                                         options={OPENAI_COMPLETION_MODEL_WITH_EMPTY_OPTION}
                                         isRequired={true}
+                                    />
+
+                                    <FormRadioField
+                                        label="Business Function"
+                                        name="businessFunction"
+                                        value={businessFunction}
+                                        errorText={errors && errors.businessFunction}
+                                        opt1Value={1}
+                                        opt1Label="Customer Document Review"
+                                        opt2Value={2}
+                                        opt2Label="Admin Document Review"
+                                        onChange={(e)=>setBusinessFunction(parseInt(e.target.value))}
+                                        helpText={<div class="container content">
+                                        <p>The business function determines how the customer and program interact.</p>
+                                        <ul>
+                                            <li><b>Customer Document Review Based</b> - Customer must submit document(s) and this program executes on reviewing them.</li>
+                                            <li><b>Admin Document Review Based</b> - Customer simply asks questions to the program based the document(s) provided by you. The program generates answers using your document(s).</li>
+                                        </ul>
+                                        <p>Please note: This function will become readonly once you submit this program into the system.</p>
+                                        </div>}
                                     />
 
                                     <div className="columns pt-5">

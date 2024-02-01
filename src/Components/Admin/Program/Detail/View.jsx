@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { getProgramDetailAPI, deleteProgramAPI } from "../../../../API/Program";
 import FormErrorBox from "../../../Reusable/FormErrorBox";
 import DataDisplayRowText from "../../../Reusable/DataDisplayRowText";
+import DataDisplayRowRadio from "../../../Reusable/DataDisplayRowRadio";
 import FormInputField from "../../../Reusable/FormInputField";
 import FormTextareaField from "../../../Reusable/FormTextareaField";
 import FormRadioField from "../../../Reusable/FormRadioField";
@@ -272,6 +273,15 @@ function AdminProgramDetail() {
                                     <DataDisplayRowText
                                         label="Modal"
                                         value={program.model}
+                                    />
+
+                                    <DataDisplayRowRadio
+                                        label="Business Function"
+                                        value={program.businessFunction}
+                                        opt1Value={1}
+                                        opt1Label="Customer Document Review"
+                                        opt2Value={2}
+                                        opt2Label="Admin Document Review"
                                     />
 
                                     <div className="columns pt-5">

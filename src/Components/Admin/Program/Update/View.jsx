@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTable, faRobot, faTasks, faTachometer, faPlus, faTimesCircle, faCheckCircle, faUserCircle, faGauge, faPencil, faUsers, faIdCard, faAddressBook, faContactCard, faChartPie, faCogs, faEye, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useRecoilState } from 'recoil';
 
+import DataDisplayRowRadio from "../../../Reusable/DataDisplayRowRadio";
 import { putProgramUpdateAPI, getProgramDetailAPI } from "../../../../API/Program";
 import FormErrorBox from "../../../Reusable/FormErrorBox";
 import FormInputField from "../../../Reusable/FormInputField";
@@ -43,6 +44,7 @@ function AdminProgramUpdate() {
     const [description, setDescription] = useState("");
     const [instructions, setInstructions] = useState("");
     const [model, setModel] = useState("");
+    const [businessFunction, setBusinessFunction] = useState(0);
 
     ////
     //// Event handling.
@@ -130,6 +132,7 @@ function AdminProgramUpdate() {
         setDescription(response.description);
         setInstructions(response.instructions);
         setModel(response.model);
+        setBusinessFunction(response.businessFunction);
     }
 
     function onError(apiErr) {
@@ -282,6 +285,16 @@ function AdminProgramUpdate() {
                                         onChange={(e)=>setModel(e.target.value)}
                                         options={OPENAI_COMPLETION_MODEL_WITH_EMPTY_OPTION}
                                         isRequired={true}
+                                    />
+
+                                    <DataDisplayRowRadio
+                                        label="Business Function"
+                                        value={businessFunction}
+                                        opt1Value={1}
+                                        opt1Label="Customer Document Review"
+                                        opt2Value={2}
+                                        opt2Label="Admin Document Review"
+                                        helpText="This field cannot be changed and is readonly."
                                     />
 
                                     <div className="columns pt-5">

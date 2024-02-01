@@ -240,17 +240,19 @@ function CustomerExecutableAddStep2() {
                                                     value={program.description}
                                                 />
 
-                                                <FormMultiSelectFieldForUploadDirectories
-                                                    label="Load all files within the following directories(s) (Optional)"
-                                                    name="uploadDirectoryIDs"
-                                                    placeholder="Pick files"
-                                                    uploadDirectories={uploadDirectoryIDs}
-                                                    setUploadDirectories={setUploadDirectoryIDs}
-                                                    errorText={errors && errors.uploadDirectoryIDs}
-                                                    helpText="Pick the files you want to review."
-                                                    isRequired={true}
-                                                    maxWidth="320px"
-                                                />
+                                                {program.businessFunction === 1 &&
+                                                    <FormMultiSelectFieldForUploadDirectories
+                                                        label="Load all files within the following directories(s) (Optional)"
+                                                        name="uploadDirectoryIDs"
+                                                        placeholder="Pick files"
+                                                        uploadDirectories={uploadDirectoryIDs}
+                                                        setUploadDirectories={setUploadDirectoryIDs}
+                                                        errorText={errors && errors.uploadDirectoryIDs}
+                                                        helpText="Pick the files you want to review."
+                                                        isRequired={true}
+                                                        maxWidth="320px"
+                                                    />
+                                                }
 
                                                 <FormTextareaField
                                                     label="Question"
