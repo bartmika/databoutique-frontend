@@ -100,16 +100,16 @@ function AdminDashboard() {
                                 <section class="hero is-medium is-link">
                                   <div class="hero-body">
                                     <p class="title">
-                                        <FontAwesomeIcon className="fas" icon={faRobot} />&nbsp;Assistants
+                                        <FontAwesomeIcon className="fas" icon={faRobot} />&nbsp;Programs
                                     </p>
                                     <p class="subtitle">
-                                      Create or edit any of your assistant by clicking below:
+                                      Create or edit any of your program by clicking below:
                                       <br />
                                       <br />
-                                      <Link to={"/admin/assistants"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                                      <Link to={"/admin/programs"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                                       <br />
                                       <br />
-                                      <Link to={"/admin/assistants/add"}>Add&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                                      <Link to={"/admin/programs/add"}>Add&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                                     </p>
                                   </div>
                                 </section>
@@ -118,16 +118,16 @@ function AdminDashboard() {
                                 <section class="hero is-medium is-primary">
                                   <div class="hero-body">
                                     <p class="title">
-                                        <FontAwesomeIcon className="fas" icon={faFile} />&nbsp;Assistant Files
+                                        <FontAwesomeIcon className="fas" icon={faUsers} />&nbsp;Users
                                     </p>
                                     <p class="subtitle">
-                                      Have a CPS registry number? Use the following to lookup existing records:
+                                      Have a user? Use the following to lookup existing records:
                                       <br />
                                       <br />
-                                      <Link to={"/admin/assistant-files"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                                      <Link to={"/admin/users"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                                       <br />
                                       <br />
-                                      <Link to={"/admin/assistant-files/add"}>Add&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                                      <Link to={"/admin/users/add/step-1-search"}>Add&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                                     </p>
                                   </div>
                                 </section>
@@ -135,13 +135,13 @@ function AdminDashboard() {
                                 <section class="hero is-medium is-success">
                                   <div class="hero-body">
                                     <p class="title">
-                                        <FontAwesomeIcon className="fas" icon={faUsers} />&nbsp;Users
+                                        <FontAwesomeIcon className="fas" icon={faFile} />&nbsp;My Files
                                     </p>
                                     <p class="subtitle">
-                                       Manage the users that belong to your system.
+                                       Manage the files that belong to your system.
                                       <br />
                                       <br />
-                                      <Link to={"/admin/users"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
+                                      <Link to={"/admin/upload-directories"}>View&nbsp;<FontAwesomeIcon className="fas" icon={faArrowRight} /></Link>
                                     </p>
                                   </div>
                                 </section>

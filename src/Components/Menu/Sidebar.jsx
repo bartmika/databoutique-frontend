@@ -157,6 +157,11 @@ export default props => {
                                     <FontAwesomeIcon className="fas" icon={faQuestionCircle} />&nbsp;Program Categories
                                 </Link>
                             </li>
+                            <li>
+                                <Link to="/admin/upload-directories" className={`has-text-grey-light ${location.pathname.includes("upload") && "is-active"}`}>
+                                    <FontAwesomeIcon className="fas" icon={faFile} />&nbsp;My Uploads
+                                </Link>
+                            </li>
                         </ul>
 
                         <p className="menu-label has-text-grey-light">

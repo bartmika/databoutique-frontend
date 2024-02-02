@@ -90,13 +90,23 @@ import AdminProgramSearchResult from "./Components/Admin/Program/Search/Result";
 // import AdminProgramThreadList from "./Components/Admin/Program/Thread/List";
 // import AdminProgramThreadDetail from "./Components/Admin/Program/Thread/Detail";
 
-// Program Category
+// Admin Program Category
 import AdminProgramCategoryList from "./Components/Admin/ProgramCategory/List/View";
 import AdminProgramCategoryAdd from "./Components/Admin/ProgramCategory/Add/View";
 import AdminProgramCategoryDetail from "./Components/Admin/ProgramCategory/Detail/View";
 import AdminProgramCategoryUpdate from "./Components/Admin/ProgramCategory/Update/View";
 import AdminProgramCategorySearch from "./Components/Admin/ProgramCategory/Search/Search";
 import AdminProgramCategorySearchResult from "./Components/Admin/ProgramCategory/Search/Result";
+
+// Admin Upload Directory
+import AdminUploadDirectoryList from "./Components/Admin/UploadDirectory/List/View";
+import AdminUploadDirectoryAdd from "./Components/Admin/UploadDirectory/Add/View";
+import AdminUploadDirectoryDetail from "./Components/Admin/UploadDirectory/Detail/View";
+import AdminUploadDirectoryUpdate from "./Components/Admin/UploadDirectory/Update/View";
+import AdminUploadDirectoryUploadFileList from "./Components/Admin/UploadDirectory/Detail/UploadFile/List/View";
+import AdminUploadDirectoryUploadFileAdd from "./Components/Admin/UploadDirectory/Detail/UploadFile/Add/View";
+import AdminUploadDirectoryUploadFileDetail from "./Components/Admin/UploadDirectory/Detail/UploadFile/Detail/View";
+import AdminUploadDirectoryUploadFileUpdate from "./Components/Admin/UploadDirectory/Detail/UploadFile/Update/View";
 
 // Customer Dashboard
 import CustomerDashboard from "./Components/Customer/Dashboard/View";
@@ -243,6 +253,15 @@ function AppRoute() {
                                     <Route exact path="/admin/assistant-files/search" element={<AdminAssistantFileSearch/>}/>
                                     <Route exact path="/admin/assistant-files/add" element={<AdminAssistantFileAdd/>}/>
                                     <Route exact path="/admin/assistant-files" element={<AdminAssistantFileList/>}/>
+
+                                    <Route exact path="/admin/upload-directory/:udid/upload-file/:ufid/edit" element={<AdminUploadDirectoryUploadFileUpdate/>}/>
+                                    <Route exact path="/admin/upload-directory/:udid/upload-file/:ufid" element={<AdminUploadDirectoryUploadFileDetail/>}/>
+                                    <Route exact path="/admin/upload-directory/:udid/upload-files/add" element={<AdminUploadDirectoryUploadFileAdd/>}/>
+                                    <Route exact path="/admin/upload-directory/:udid/upload-files" element={<AdminUploadDirectoryUploadFileList/>}/>
+                                    <Route exact path="/admin/upload-directory/:id/edit" element={<AdminUploadDirectoryUpdate/>}/>
+                                    <Route exact path="/admin/upload-directory/:id" element={<AdminUploadDirectoryDetail/>}/>
+                                    <Route exact path="/admin/upload-directories/add" element={<AdminUploadDirectoryAdd/>}/>
+                                    <Route exact path="/admin/upload-directories" element={<AdminUploadDirectoryList/>}/>
 
                                     <Route exact path="/admin/help" element={<AdminHelp/>}/>
                                     <Route exact path="/admin/dashboard" element={<AdminDashboard/>}/>
