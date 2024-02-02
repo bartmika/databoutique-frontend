@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTasks, faTachometer, faPlus, faTimesCircle, faCheckCircle, faRobot, faGauge, faPencil, faUsers, faIdCard, faAddressBook, faContactCard, faChartPie, faCogs, faEye, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useRecoilState } from 'recoil';
 
-import useLocalStorage from "../../../../Hooks/useLocalStorage";
+import FormMultiSelectFieldForUploadDirectories from "../../../Reusable/FormMultiSelectFieldForUploadDirectories";
 import { postProgramCreateAPI } from "../../../../API/Program";
 import FormErrorBox from "../../../Reusable/FormErrorBox";
 import FormInputField from "../../../Reusable/FormInputField";
@@ -38,6 +38,7 @@ function AdminProgramAdd() {
     const [instructions, setInstructions] = useState("");
     const [model, setModel] = useState("gpt-3.5-turbo-1106");
     const [businessFunction, setBusinessFunction] = useState(0);
+    const [uploadDirectoryIDs, setUploadDirectoryIDs] = useState([]);
 
     ////
     //// Event handling.
@@ -58,6 +59,7 @@ function AdminProgramAdd() {
             instructions: instructions,
             model: model,
             business_function: businessFunction,
+            upload_directory_ids: uploadDirectoryIDs,
         };
         postProgramCreateAPI(
             decamelizedData,
@@ -253,6 +255,20 @@ function AdminProgramAdd() {
                                         <p>Please note: This function will become readonly once you submit this program into the system.</p>
                                         </div>}
                                     />
+
+                                    {businessFunction === 2 &&
+                                        <FormMultiSelectFieldForUploadDirectories
+                                            label="Load all files within the following directories(s):"
+                                            name="uploadDirectoryIDs"
+                                            placeholder="Pick files"
+                                            uploadDirectories={uploadDirectoryIDs}
+                                            setUploadDirectories={setUploadDirectoryIDs}
+                                            errorText={errors && errors.uploadDirectoryIds}
+                                            helpText="Pick the files you want to review."
+                                            isRequired={true}
+                                            maxWidth="320px"
+                                        />
+                                    }
 
                                     <div className="columns pt-5">
                                         <div className="column is-half">
