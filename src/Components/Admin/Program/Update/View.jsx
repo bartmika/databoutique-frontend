@@ -67,6 +67,7 @@ function AdminProgramUpdate() {
             description: description,
             instructions: instructions,
             model: model,
+            business_function: businessFunction,
             directories: directories,
         };
         putProgramUpdateAPI(
