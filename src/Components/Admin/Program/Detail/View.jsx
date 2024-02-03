@@ -17,6 +17,7 @@ import FormSelectField from "../../../Reusable/FormSelectField";
 import FormCheckboxField from "../../../Reusable/FormCheckboxField";
 import FormCountryField from "../../../Reusable/FormCountryField";
 import FormRegionField from "../../../Reusable/FormRegionField";
+import DataDisplayRowUploadDirectory from "../../../Reusable/DataDisplayRowUploadDirectory";
 import DataDisplayRowDownloadLink from "../../../Reusable/DataDisplayRowDownloadLink";
 import PageLoadingContent from "../../../Reusable/PageLoadingContent";
 import { topAlertMessageState, topAlertStatusState } from "../../../../AppState";
@@ -282,6 +283,11 @@ function AdminProgramDetail() {
                                         opt1Label="Customer Document Review"
                                         opt2Value={2}
                                         opt2Label="Admin Document Review"
+                                    />
+
+                                    <DataDisplayRowUploadDirectory
+                                       label="Upload Directories"
+                                       directories={program.directories}
                                     />
 
                                     <div className="columns pt-5">

@@ -16,6 +16,7 @@ import FormSelectField from "../../../Reusable/FormSelectField";
 import PageLoadingContent from "../../../Reusable/PageLoadingContent";
 import { topAlertMessageState, topAlertStatusState } from "../../../../AppState";
 import { OPENAI_COMPLETION_MODEL_WITH_EMPTY_OPTION } from "../../../../Constants/FieldOptions";
+import DataDisplayRowUploadDirectory from "../../../Reusable/DataDisplayRowUploadDirectory";
 
 
 function AdminProgramUpdate() {
@@ -45,6 +46,7 @@ function AdminProgramUpdate() {
     const [instructions, setInstructions] = useState("");
     const [model, setModel] = useState("");
     const [businessFunction, setBusinessFunction] = useState(0);
+    const [directories, setDirectories] = useState("");
 
     ////
     //// Event handling.
@@ -65,6 +67,7 @@ function AdminProgramUpdate() {
             description: description,
             instructions: instructions,
             model: model,
+            directories: directories,
         };
         putProgramUpdateAPI(
             decamelizedData,
@@ -133,6 +136,7 @@ function AdminProgramUpdate() {
         setInstructions(response.instructions);
         setModel(response.model);
         setBusinessFunction(response.businessFunction);
+        setDirectories(response.directories);
     }
 
     function onError(apiErr) {
@@ -294,6 +298,12 @@ function AdminProgramUpdate() {
                                         opt1Label="Customer Document Review"
                                         opt2Value={2}
                                         opt2Label="Admin Document Review"
+                                        helpText="This field cannot be changed and is readonly."
+                                    />
+
+                                    <DataDisplayRowUploadDirectory
+                                        label="Upload Directories"
+                                        directories={directories}
                                         helpText="This field cannot be changed and is readonly."
                                     />
 
