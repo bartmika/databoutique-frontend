@@ -75,7 +75,7 @@ function AdminUploadDirectoryAdd() {
         console.log(response);
 
         // Add a temporary banner message in the app and then clear itself after 2 seconds.
-        setTopAlertMessage("Program category created");
+        setTopAlertMessage("Upload directory created");
         setTopAlertStatus("success");
         setTimeout(() => {
             console.log("onAdminUserUploadDirectoryAddSuccess: Delayed for 2 seconds.");

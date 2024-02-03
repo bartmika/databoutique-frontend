@@ -131,7 +131,7 @@ function AdminUploadDirectoryUploadFileList() {
 
         // Update notification.
         setTopAlertStatus("success");
-        setTopAlertMessage("UploadFile deleted");
+        setTopAlertMessage("File deleted");
         setTimeout(() => {
             console.log("onDeleteConfirmButtonClick: topAlertMessage, topAlertStatus:", topAlertMessage, topAlertStatus);
             setTopAlertMessage("");

@@ -88,7 +88,7 @@ function AdminUploadFileUpdate() {
         console.log(response);
 
         // Add a temporary banner message in the app and then clear itself after 2 seconds.
-        setTopAlertMessage("Upload file updated");
+        setTopAlertMessage("File updated");
         setTopAlertStatus("success");
         setTimeout(() => {
             console.log("onAdminUploadFileUpdateSuccess: Delayed for 2 seconds.");

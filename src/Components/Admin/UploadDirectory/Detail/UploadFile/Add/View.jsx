@@ -86,7 +86,7 @@ function AdminUploadDirectoryUploadFileAdd() {
         console.log(response);
 
         // Add a temporary banner message in the app and then clear itself after 2 seconds.
-        setTopAlertMessage("UploadFile uploaded");
+        setTopAlertMessage("File uploaded");
         setTopAlertStatus("success");
         setTimeout(() => {
             console.log("onAdminUserUploadFileAddSuccess: Delayed for 2 seconds.");
